@@ -2,7 +2,6 @@ import logging
 from typing import Optional, List
 
 from langchain_core.messages import SystemMessage
-from langgraph.types import interrupt
 
 from chatbot.state import ChatbotState
 from chatbot.utils.model_provider import get_model
@@ -30,12 +29,3 @@ class ChatbotNode:
         response = self.model.invoke(messages)
         state["messages"].append(response)
         return state
-
-class HumanInputNode:
-    def __init__(self, model_name: str, temperature: float = 0):
-        self.model = get_model(model_name, temperature)
-
-    def run(self, state: ChatbotState):
-        human_input = interrupt(f"{state['messages'][-1].content}\n\n")
-        state["messages"].append(human_input)
-        return state  # Hold state until user sends input

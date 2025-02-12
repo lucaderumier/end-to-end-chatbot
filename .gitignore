@@ -10,3 +10,6 @@
 
 # Packaging
 *.egg-info/
+
+# Env variables
+.env
