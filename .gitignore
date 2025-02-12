@@ -1,0 +1,12 @@
+# IDE
+.vscode/
+.idea/
+
+# Cache
+**/.ipynb_checkpoints/
+**/__pycache__/
+**/.mypy_cache/
+*.pyc
+
+# Packaging
+*.egg-info/
