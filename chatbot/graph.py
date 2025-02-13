@@ -1,5 +1,4 @@
 from IPython.display import Image, display
-import logging
 from typing import Optional
 
 from langgraph.checkpoint.memory import MemorySaver
@@ -9,8 +8,6 @@ from langchain_core.runnables import RunnableConfig
 from chatbot.node import ChatbotNode
 from chatbot.state import ChatbotState
 
-
-LOG = logging.getLogger(__name__)
 
 class ChatbotGraph:
     def __init__(self, model_name: str, temperature: float = 0):

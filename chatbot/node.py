@@ -1,4 +1,3 @@
-import logging
 from typing import Optional, List
 
 from langchain_core.messages import SystemMessage
@@ -6,7 +5,6 @@ from langchain_core.messages import SystemMessage
 from chatbot.state import ChatbotState
 from chatbot.utils.model_provider import get_model
 
-LOG = logging.getLogger(__name__)
 
 class ChatbotNode:
     def __init__(
@@ -17,7 +15,6 @@ class ChatbotNode:
     ):
         self.system_message = SystemMessage(content=system_prompt)
         self.model = get_model(model_name, temperature)
-
 
     def run(self, state: ChatbotState):
         messages = state["messages"]
